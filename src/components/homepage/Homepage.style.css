@@ -1,0 +1,68 @@
+.homepage {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    background: linear-gradient(180deg, #03045E 0%, #41235A 100%);
+    overflow: hidden;
+}
+
+.head {
+    margin-top: 184px;
+}
+
+.btn-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.btn-homepage {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    color: white;
+    width: 115px;
+    height: 40px;
+    background: #08075E;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+}
+
+.btn-homepage:active {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    color: white;
+    width: 115px;
+    height: 40px;
+    background: #1613a0;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+}
+
+.manual-entry {
+    width: 148px;
+}
+
+.manual-entry:active {
+    width: 148px;
+}
+
+.guitar {
+    position: fixed;
+    top: 20%;
+    left: 30%;
+    height: 60%;
+    z-index: 0;
+    pointer-events: none;
+}

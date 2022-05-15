@@ -1,6 +1,6 @@
 .qr-reader {
     height: 100vh;
-    background: linear-gradient(180deg, #03045E 0%, #41235A 100%);
+    background: rgba(0, 0, 0, 0.6);
     overflow: hidden;
 }
 
@@ -16,8 +16,9 @@
 .header2 {
     font-family: 'Poppins';
     font-weight: 400;
-    font-size: 40px;
+    font-size: 20px;
+    margin-top: 55%;
     line-height: 23px;
     text-align: center;
-    color: #FFFFFF;
+    color: white;
 }

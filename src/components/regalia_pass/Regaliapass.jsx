@@ -17,11 +17,10 @@ const Regaliapass = () => {
     setloading(true);
     const fetchData = () => {
       try {
-        getPass(params.id).then((pdata)=>{
-          // if(pdata.status !== 200){
-          //   history.replace('/')
-          // }
-          console.log(pdata.status);
+         getPass(params.id, history).then((pdata)=>{
+          if(pdata['status'] === 401){
+            history.replace('/')
+          }
           setdata(pdata.data)
           setloading(false)
         })

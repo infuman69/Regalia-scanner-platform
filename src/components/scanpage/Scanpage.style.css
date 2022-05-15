@@ -1,0 +1,23 @@
+.qr-reader {
+    height: 100vh;
+    background: linear-gradient(180deg, #03045E 0%, #41235A 100%);
+    overflow: hidden;
+}
+
+.uid-data {
+    margin-top: 15%;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.header2 {
+    font-family: 'Poppins';
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 23px;
+    text-align: center;
+    color: #FFFFFF;
+}

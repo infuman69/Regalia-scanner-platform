@@ -1,25 +1,30 @@
-import React,{useState} from 'react'
+import axios from 'axios';
+import React, {useState} from 'react'
 import { QrReader } from 'react-qr-reader';
+import './Scanpage.style.css'
 
 const Scanpage = () => {
-  const [data, setData] = useState('No result');
+  const [data, setData] = useState('');
   return (
-    <>
+    <div className='qr-reader'>
+      <h2 className='header2'>Scan QR Code</h2>
     <QrReader
       onResult={(result, error) => {
         if (!!result) {
           setData(result?.text);
+
         }
 
         if (!!error) {
           console.info(error);
         }
       }}
-      style={{ width: '50%' ,height:'50%'}}
-      containerStyle={{ width: '20%' ,height:'20%' ,display:'flex',justifyContent:'center',alignItems:'center'}}
+      videoContainerStyle={ { paddingTop: '75%' } }
+      videoStyle={{ borderRadius:'10px'}}
+      containerStyle={{marginLeft:'10%', marginRight:'10%', marginTop:'40%', display:'flex', justifyContent:'center', alignItems:'center'}}
     />
-    <p>{data}</p>
-  </>
+    <div className='uid-data'>{data}</div>
+  </div>
   )
 }
 

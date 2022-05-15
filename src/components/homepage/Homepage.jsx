@@ -7,9 +7,8 @@ import { useHistory } from "react-router-dom";
 
 const Homepage = () => {
   let history =useHistory()
- 
+
   const goToScan = () =>{
-    console.log('shourya ekta bokachoda');
     history.push('/scan')
   }
 

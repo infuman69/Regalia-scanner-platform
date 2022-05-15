@@ -4,7 +4,7 @@ const Token = process.env.REACT_APP_TOKEN
 
 const getPass = async(id) => {
     const pass = await axios.get( Base+'scan/'+id , { headers: {"Authorization" :`Bearer ${Token}`} })
-    return pass.data
+    return pass
 }
 
 export default getPass

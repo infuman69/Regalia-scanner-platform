@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React, {useState} from 'react'
 import { QrReader } from 'react-qr-reader';
 import { useHistory } from 'react-router-dom';
@@ -15,7 +14,12 @@ const Scanpage = () => {
       onResult={(result, error) => {
         if (!!result) {
           setData(result?.text);
-          history.push(`/${data}`)
+          history.push('/' + data)
+          // history.push(`/6aebabead084e6b63c92c2f7`)
+          // history.push(`/6aebabead084e6b63c92c2f7`)
+          // if (true) {
+          //   history.push(`/${data}`)
+          // }
         }
 
         if (!!error) {
@@ -29,7 +33,6 @@ const Scanpage = () => {
       videoStyle={{ borderRadius:'10px'}}
       containerStyle={{marginLeft:'10%', marginRight:'10%', marginTop:'40%', display:'flex', justifyContent:'center', alignItems:'center'}}
     />
-    <div className='uid-data'>{data}</div>
   </div>
   )
 }

@@ -9,5 +9,9 @@ const getPass = (id, history) => {
         return ({"status": 401})
     })
 }
+const patchVerify = (id,count) => {
+    console.log(Base + 'verify/' + id + '?count_of_bands=' + count.toString())
+    return Promise.resolve(axios.patch(Base + 'verify/' + id + '?count_of_bands=' + count,{ headers:{"Authorization" :`Bearer ${Token}`}} ))
+}
 
-export default getPass
+export {getPass,patchVerify}

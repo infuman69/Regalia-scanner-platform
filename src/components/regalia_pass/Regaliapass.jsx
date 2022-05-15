@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import getPass from "../../Api/Api";
+import  { getPass,patchVerify } from "../../Api/Api";
 import Loading from "../Loading/Loading";
 import './Regalia_pass.style.css';
 import { useHistory } from 'react-router-dom';
@@ -40,6 +40,18 @@ const Regaliapass = () => {
     setCount((count) => (count === 1 ? 1 : count - 1));
   };
   
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    try{
+      patchVerify(params.id,count).then((pdata) => {
+        console.log(pdata);
+        if(pdata.status.code !== 204)
+        history.replace('/')
+      }).catch((err) => {console.log(err)})
+    }catch(err){
+      console.log(err);
+    }
+  };
 
   return loading ? (
     <Loading />
@@ -70,7 +82,7 @@ const Regaliapass = () => {
         <button
           className="submit-btn"
           type="submit"
-         
+          onClick={(e) => {handleSubmit(e)}}
         >
           Submit
         </button>

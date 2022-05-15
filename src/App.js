@@ -1,18 +1,24 @@
 import './App.css';
-import { Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Homepage from './components/homepage/Homepage';
 import Scanpage from './components/scanpage/Scanpage';
 
 function App() {
   return (
-    <div className="App">
+      <div className='App'>
+
       <Router>
-        <Routes>
-          <Route exact path="/" element={<Homepage />} />
-          <Route exact path="/scan" element={<Scanpage />} />
-        </Routes>
+        <Switch>
+          <Route exact={true} path="/">
+            <Homepage/>
+          </Route>
+          <Route exact={true} path="/scan">
+            <Scanpage/>
+          </Route>
+        </Switch>
       </Router>
-    </div>
+      </div>
+    
   );
 }
 

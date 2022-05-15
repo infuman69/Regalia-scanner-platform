@@ -1,15 +1,16 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+
 import header from '../../assets/header.png'
 import guitar from '../../assets/guitar.png'
 import './Homepage.style.css'
+import { useHistory } from "react-router-dom";
 
 const Homepage = () => {
-
-  let navigate = useNavigate();
+  let history =useHistory()
+ 
   const goToScan = () =>{
-    let path = `/scan`;
-    navigate(path);
+    console.log('shourya ekta bokachoda');
+    history.push('/scan')
   }
 
   return (

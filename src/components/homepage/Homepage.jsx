@@ -2,6 +2,7 @@ import React from "react";
 import header from '../../assets/header.png'
 import guitar from '../../assets/guitar.png'
 import './Homepage.style.css'
+import { Link } from "react-router-dom";
 
 const Homepage = () => {
   return (
@@ -10,9 +11,9 @@ const Homepage = () => {
             <img src={header} alt="regalia logo" />
         </div>
         <div className="btn-container">
-            <button className='btn-homepage'>
+            <Link to="/scan"><button className='btn-homepage'>
                 SCAN PASS
-            </button>
+            </button></Link>
             <button className='btn-homepage manual-entry'>
                 MANUAL ENTRY
             </button>

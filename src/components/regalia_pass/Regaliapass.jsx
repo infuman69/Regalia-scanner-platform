@@ -6,6 +6,7 @@ import './Regalia_pass.style.css';
 import { useHistory } from 'react-router-dom';
 import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai';
 
+
 const Regaliapass = () => {
   let params = useParams();
   const [data, setdata] = useState({});
@@ -14,23 +15,24 @@ const Regaliapass = () => {
   let history = useHistory()
   useEffect(() => {
     setloading(true);
-    const fetchData = async () => {
+    const fetchData = () => {
       try {
-        const pdata = await getPass(params.id);
-        if (pdata.status === 200) {
-          setdata(pdata.data);
-          setloading(false);
-        } else {
-          window.alert("Something went wrong");
-          setloading(false);
-          history.replace(`/scan`)
+         getPass(params.id).then((pdata)=>{
+          // if(pdata.status !== 200){
+          //   history.replace('/')
+          // } 
+          console.log(pdata.status);
+          setdata(pdata.data)
+          setloading(false)
+          })
         }
-      } catch (err) {
+        catch (err) {
         console.log(err);
         setloading(false);
       }
     };
     fetchData();
+    
   }, [history, params.id]);
 
   const increment_func = () => {

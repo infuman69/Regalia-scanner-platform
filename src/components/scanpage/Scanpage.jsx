@@ -13,8 +13,9 @@ const Scanpage = () => {
     <QrReader
       onResult={(result, error) => {
         if (!!result) {
-          setData(result?.text);
-          history.push('/' + data)
+          console.log(result)
+          
+          history.push('/'+result.getText())
           // history.push(`/6aebabead084e6b63c92c2f7`)
           // history.push(`/6aebabead084e6b63c92c2f7`)
           // if (true) {
@@ -32,7 +33,9 @@ const Scanpage = () => {
       videoContainerStyle={ { paddingTop: '75%' } }
       videoStyle={{ borderRadius:'10px'}}
       containerStyle={{marginLeft:'10%', marginRight:'10%', marginTop:'40%', display:'flex', justifyContent:'center', alignItems:'center'}}
+      scanDelay={500}
     />
+    <p>{data}</p>
   </div>
   )
 }

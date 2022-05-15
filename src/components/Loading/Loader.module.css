@@ -14,3 +14,11 @@
     border-radius: 50%;
     animation: spinner 1.5s linear infinite;
 }
+
+.spinner_container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

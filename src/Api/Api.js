@@ -12,8 +12,8 @@ const getPass = (id) => {
 const patchVerify = (id, count) => {
     console.log(Base + 'verify/' + id + '?count_of_bands=' + count.toString())
     return Promise.resolve(axios.patch(Base + 'verify/' + id + '?count_of_bands=' + count, {}, { headers:{"Authorization" :`Bearer ${Token}`}} )).catch((err) => {
-        console.log(err)
-        return ({"status": 0})
+        console.log(err.response.data.detail)
+        return ({"status": 0, "messsage": err.response.data.detail})
     })
 }
 

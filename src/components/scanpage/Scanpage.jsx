@@ -2,6 +2,7 @@ import React from 'react'
 import { QrReader } from 'react-qr-reader';
 import { useHistory } from 'react-router-dom';
 import './Scanpage.style.css'
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Scanpage = () => {

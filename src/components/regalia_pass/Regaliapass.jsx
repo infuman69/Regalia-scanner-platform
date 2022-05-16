@@ -4,15 +4,20 @@ import  { getPass,patchVerify } from "../../Api/Api";
 import Loading from "../Loading/Loading";
 import './Regalia_pass.style.css';
 import { useHistory } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai';
 
 
 const Regaliapass = () => {
   let params = useParams();
+
   const [data, setdata] = useState({});
   const [count, setCount] = useState(1);
   const [loading, setloading] = useState(false);
+
   let history = useHistory()
+
   useEffect(() => {
     setloading(true);
     const fetchData = () => {
@@ -36,22 +41,57 @@ const Regaliapass = () => {
   const increment_func = () => {
     setCount((count) => ((count === 3 || count === data.allowed) ? count : count + 1));
   };
+
   const decrement_func = () => {
     setCount((count) => (count === 1 ? 1 : count - 1));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     try{
       patchVerify(params.id,count).then((pdata) => {
+
         console.log(pdata);
-        if(pdata.status === 200)
-          history.replace('/')
+
+        if(pdata.status === 200) {
+          toast.success('Success', {
+            position: "top-right",
+            autoClose: 1000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          })
+          setTimeout(() => history.replace('/'), 1500)
+        }
+
         else if (pdata['status'] === 0) {
-          window.alert("Something went wrong. Please try again later.");
+          toast.error(`${pdata['messsage']}`, {
+            position: "top-right",
+            autoClose: 1000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          })
+          setTimeout(() => history.replace('/'), 1500)
         }
       }).catch((err) => {console.log(err)})
-    }catch(err){
+    }
+
+    catch(err){
+      toast.error('error', {
+        position: "top-right",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      })
       console.log(err);
     }
   };
@@ -64,6 +104,7 @@ const Regaliapass = () => {
         <div className="allowed-heading">
           <p className="font-style-head">{data.allowed} allowed</p>
         </div>
+        <div className="border-dashed"></div>
         <div className="name-email-roll">
           <div className="name-email-roll-padding">
             <p className="font-style-head name">{data.name}</p>
@@ -90,6 +131,17 @@ const Regaliapass = () => {
           Submit
         </button>
       </div>
+      <ToastContainer
+        position="top-right"
+        autoClose={1000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </div>
   );
 };

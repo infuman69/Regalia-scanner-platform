@@ -45,7 +45,7 @@ const Regaliapass = () => {
     try{
       patchVerify(params.id,count).then((pdata) => {
         console.log(pdata);
-        if(pdata.status === 204)
+        if(pdata.status === 200)
           history.replace('/')
         else if (pdata['status'] === 0) {
           window.alert("Something went wrong. Please try again later.");

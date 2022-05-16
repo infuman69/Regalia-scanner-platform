@@ -1,0 +1,61 @@
+.uniqueid{
+    height:14%;
+    position: fixed;
+    width:100%;
+    transform: none;
+    left:0;
+    bottom:0;
+    border-radius: 10px 10px 0px 0px;
+    background: #ffffff;
+    z-index: 1000;
+    
+}
+.uniqueid h4{
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #08075E;
+    width:100%;
+    margin:8px 10px;
+}
+.uniqueid input{
+    display:block;
+    outline:none ;
+    border: none;
+    width:99%; 
+    margin:0 auto;
+    border-bottom: 1px solid #08075E;
+    
+    
+}
+.btn-uniqueid-container{
+    margin:1.5rem 0;
+    display: flex;
+    width: 81px;
+    height: 26px;
+    justify-content: flex-end;
+    width:100%;
+    margin:10px -5px;
+    
+}
+.btn-uniqueid{
+    
+    width: 81px;
+    height: 26px;
+    background-color: #08075E;
+    border-radius: 5px;
+    align-items: center;
+    padding: 4px 12px;
+    color:#ffffff;
+    font-family: Poppins;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 18px;
+    letter-spacing: 0em;
+    text-align: center;
+    border:none;
+    outline:none;
+}

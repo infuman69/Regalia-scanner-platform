@@ -1,0 +1,30 @@
+.overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .7);
+    z-index: 1000
+}
+.modal{
+      position: fixed;
+      width:49.5%;
+      height:72.8%;
+      top:50%;
+      left:50%;
+      transform: translate(-50%,-50%);
+      background-color: #FFFFFF;
+      font-family: 'IBM Plex Sans', sans-serif;
+      z-index: 1000;
+      border-radius: 10px 10px 0px 0px;
+}
+.closebtn{
+    position:fixed;
+    z-index: 1000;
+    background-color: #FFFFFF;
+    top:10%;
+    right:23%;
+    border-radius: 50%;
+    cursor: pointer;
+}

@@ -6,7 +6,7 @@ const getPass = (id) => {
     var response = axios.get( Base + 'scan/'+id , { headers: {"Authorization" :`Bearer ${Token}`} });
     return Promise.resolve(response).catch((err) => {
         console.log(err)
-        return ({"status": 0})
+        return ({"status": 0,"messsage": err.response.data.detail})
     })
 }
 const patchVerify = (id, count) => {

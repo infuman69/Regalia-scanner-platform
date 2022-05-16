@@ -4,7 +4,7 @@ import  { getPass,patchVerify } from "../../Api/Api";
 import Loading from "../Loading/Loading";
 import './Regalia_pass.style.css';
 import { useHistory } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai';
 
@@ -24,7 +24,10 @@ const Regaliapass = () => {
       try {
          getPass(params.id).then((pdata)=>{
           if(pdata['status'] === 0){
-            history.replace('/')
+            toast.error(`${pdata['messsage']}`)
+            console.log(pdata['message']);
+            history.push('/')
+            
           }
           setdata(pdata.data)
           setloading(false)
@@ -77,7 +80,8 @@ const Regaliapass = () => {
             draggable: true,
             progress: undefined,
           })
-          setTimeout(() => history.replace('/'), 1500)
+          // setTimeout(() => history.replace('/'), 1500)
+          history.replace('/')
         }
       }).catch((err) => {console.log(err)})
     }
@@ -131,17 +135,6 @@ const Regaliapass = () => {
           Submit
         </button>
       </div>
-      <ToastContainer
-        position="top-right"
-        autoClose={1000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      />
     </div>
   );
 };

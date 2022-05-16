@@ -17,14 +17,14 @@ const Regaliapass = () => {
     setloading(true);
     const fetchData = () => {
       try {
-         getPass(params.id, history).then((pdata)=>{
-          if(pdata['status'] === 401){
+         getPass(params.id).then((pdata)=>{
+          if(pdata['status'] === 0){
             history.replace('/')
           }
           setdata(pdata.data)
           setloading(false)
         })
-      } 
+      }
       catch (err) {
         console.log(err);
         setloading(false);
@@ -34,19 +34,22 @@ const Regaliapass = () => {
   }, [history, params.id]);
 
   const increment_func = () => {
-    setCount((count) => (count === 3 ? 3 : count + 1));
+    setCount((count) => ((count === 3 || count === data.allowed) ? count : count + 1));
   };
   const decrement_func = () => {
     setCount((count) => (count === 1 ? 1 : count - 1));
   };
-  
+
   const handleSubmit = (e) => {
     e.preventDefault();
     try{
       patchVerify(params.id,count).then((pdata) => {
         console.log(pdata);
-        if(pdata.status.code !== 204)
-        history.replace('/')
+        if(pdata.status === 204)
+          history.replace('/')
+        else if (pdata['status'] === 0) {
+          window.alert("Something went wrong. Please try again later.");
+        }
       }).catch((err) => {console.log(err)})
     }catch(err){
       console.log(err);

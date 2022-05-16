@@ -83,25 +83,29 @@
 .allowed-heading::after {
     content: '';
     position: absolute;
-    bottom: 0;
+    bottom: -20px;
     left: 0;
     width: 20px;
-    height: 20px;
+    height: 40px;
     background-color: white;
     border-top-right-radius: 100%;
-    /* border-bottom-right-radius: 100%; */
+    border-bottom-right-radius: 100%;
+    /* border-bottom-right-radius: 50%; */
+   
 }
 
 .allowed-heading::before {
     content: '';
     position: absolute;
-    bottom: 0;
+    bottom: -20px;
     right: 0;
     width: 20px;
-    height: 20px;
+    height: 40px;
     background-color: white;
     border-top-left-radius: 100%;
+    border-bottom-left-radius: 100%;
     /* transform: translate(-50%, -50%); */
+   
 }
 
 .name-email-roll {
@@ -113,7 +117,7 @@
     flex-direction: column;
 }
 
-.name-email-roll::before {
+/* .name-email-roll::before {
     content: '';
     position: absolute;
     top: 0;
@@ -122,6 +126,7 @@
     height: 20px;
     background-color: white;
     border-bottom-right-radius: 100%;
+    
 }
 
 .name-email-roll::after {
@@ -133,7 +138,8 @@
     height: 20px;
     background-color: white;
     border-bottom-left-radius: 100%;
-}
+   
+} */
 
 .name-email-roll-padding {
     padding: 2px 1rem;

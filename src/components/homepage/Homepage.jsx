@@ -32,8 +32,8 @@ const Homepage = () => {
             </button>
         </div>
         <img src={guitar} alt="" className="guitar" />
-        <Modal open={isOpen} onClose={() => setisOpen(false)}>
-          <Uniqueid/>
+        <Modal open={isOpen} >
+          <Uniqueid onClose={() => setisOpen(false)}/>
         </Modal>
     </div>
   )

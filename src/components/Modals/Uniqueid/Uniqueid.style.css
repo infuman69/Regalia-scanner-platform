@@ -1,5 +1,5 @@
 .uniqueid{
-    height:14%;
+    height:20%;
     position: fixed;
     width:100%;
     transform: none;
@@ -10,15 +10,17 @@
     z-index: 1000;
 
 }
-.uniqueid h4{
+.uniqueid .head-close-btn{
     font-family: Poppins;
     font-size: 14px;
     font-weight: 300;
     line-height: 21px;
     letter-spacing: 0em;
     text-align: left;
+    display:flex;
+    justify-content: space-between;
     color: #08075E;
-    width:100%;
+    width:98%;
     margin:8px 10px;
 }
 .uniqueid input{
@@ -43,7 +45,7 @@
 }
 .btn-uniqueid{
     width: 91px;
-    height: 36px;
+    height: 30px;
     background-color: #08075E;
     border-radius: 5px;
     align-items: center;
@@ -57,4 +59,5 @@
     text-align: center;
     border:none;
     outline:none;
+    margin-bottom: 20px;
 }

@@ -1,9 +1,8 @@
 import React from 'react'
 import { createPortal } from 'react-dom'
-import {AiOutlineCloseCircle} from "react-icons/ai"
 import './Modal.style.css'
 
-const Modal = ({open,children,onClose}) => {
+const Modal = ({open,children}) => {
     if(!open)
      return null
 
@@ -11,9 +10,7 @@ const Modal = ({open,children,onClose}) => {
         <>
             <div className="overlay" ></div>
             {children}
-            <div className="closebtn" onClick={onClose}>
-            <AiOutlineCloseCircle />
-            </div>
+            
         </>
         ,document.getElementById('modal')
       )

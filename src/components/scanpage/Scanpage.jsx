@@ -28,9 +28,9 @@ const Scanpage = () => {
       constraints={{
         facingMode: 'environment'
       }}
-      videoContainerStyle={ { paddingTop: '69%' } }
+      videoContainerStyle={ { paddingTop: '69%',width:'100%',height:'100%' } }
       videoStyle={{ borderRadius:'10px'}}
-      containerStyle={{marginLeft:'10%', marginRight:'10%', marginTop:'0%', display:'flex', justifyContent:'center', alignItems:'center' ,height:'79%', width:"92%"}}
+      containerStyle={{marginLeft:'10%', marginRight:'10%', marginTop:'-80px', display:'flex', justifyContent:'center', alignItems:'center' ,height:'79%', width:"92%"}}
       scanDelay={500}
     />
   </div>

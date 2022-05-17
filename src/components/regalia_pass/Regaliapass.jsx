@@ -15,6 +15,7 @@ const Regaliapass = () => {
   const [data, setdata] = useState({});
   const [count, setCount] = useState(1);
   const [loading, setloading] = useState(false);
+  const [allowed,setallowed] = useState(data.allowed);
 
   let history = useHistory()
 
@@ -30,6 +31,7 @@ const Regaliapass = () => {
 
           }
           setdata(pdata.data)
+          data.date ===  "18" ? setallowed(data.allowed - data.count_of_bands_day_1) : data.date === "19" ? setallowed(data.allowed - data.count_of_bands_day_2): setallowed(1);
           setloading(false)
         })
       }
@@ -39,10 +41,10 @@ const Regaliapass = () => {
       }
     };
     fetchData();
-  }, [history, params.id]);
+  }, [history, params.id,allowed]);
 
-  const increment_func = (max) => {
-    setCount((count) => ((count === 3 || count === max) ? count : count + 1));
+  const increment_func = () => {
+    setCount((count) => ((count === 3 || count === allowed) ? count : count + 1));
   };
 
   const decrement_func = () => {
@@ -50,6 +52,7 @@ const Regaliapass = () => {
   };
 
   const checkDate = (date) => {
+    console.log(data.date);
     if (date === '18') {
       return 1
     } else if (date === '20') {
@@ -114,7 +117,10 @@ const Regaliapass = () => {
     <div className="regalia-pass-content">
       <div className="regalia-pass">
         <div className="allowed-heading">
-          <p className="font-style-head">{checkDate(data.date) === 1 ? data.allowed - data.count_of_bands_day_1 : checkDate(data.date) === 2 ? data.allowed - data.count_of_bands_day_2 : 0} allowed</p>
+          <p className="font-style-head">
+            {/* {checkDate(data.date) === 1 ? data.allowed - data.count_of_bands_day_1 : checkDate(data.date) === 2 ? data.allowed - data.count_of_bands_day_2 : 0}  */}
+            {allowed} allowed
+          </p>
         </div>
         <div className="border-dashed"></div>
         <div className="name-email-roll">
@@ -126,7 +132,7 @@ const Regaliapass = () => {
         </div>
       </div>
       <div className="number-of-bands-section">
-        <button onClick={increment_func(checkDate(data.date) === 1 ? data.allowed - data.count_of_bands_day_1 : checkDate(data.date) === 2 ? data.allowed - data.count_of_bands_day_2 : 1)} className="increment-decrement">
+        <button onClick={increment_func} className="increment-decrement">
           <AiOutlinePlus />
         </button>
         <div className="count-of-bands">{count}</div>

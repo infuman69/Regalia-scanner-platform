@@ -27,7 +27,7 @@ const Regaliapass = () => {
             toast.error(`${pdata['messsage']}`)
             console.log(pdata['message']);
             history.push('/')
-            
+
           }
           setdata(pdata.data)
           setloading(false)
@@ -41,13 +41,21 @@ const Regaliapass = () => {
     fetchData();
   }, [history, params.id]);
 
-  const increment_func = () => {
-    setCount((count) => ((count === 3 || count === data.allowed) ? count : count + 1));
+  const increment_func = (max) => {
+    setCount((count) => ((count === 3 || count === max) ? count : count + 1));
   };
 
   const decrement_func = () => {
     setCount((count) => (count === 1 ? 1 : count - 1));
   };
+
+  const checkDate = (date) => {
+    if (date === '18') {
+      return 1
+    } else if (date === '20') {
+      return 2;
+    } else return 0;
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -106,7 +114,7 @@ const Regaliapass = () => {
     <div className="regalia-pass-content">
       <div className="regalia-pass">
         <div className="allowed-heading">
-          <p className="font-style-head">{data.allowed} allowed</p>
+          <p className="font-style-head">{checkDate(data.date) === 1 ? data.allowed - data.count_of_bands_day_1 : checkDate(data.date) === 2 ? data.allowed - data.count_of_bands_day_2 : 0} allowed</p>
         </div>
         <div className="border-dashed"></div>
         <div className="name-email-roll">
@@ -118,7 +126,7 @@ const Regaliapass = () => {
         </div>
       </div>
       <div className="number-of-bands-section">
-        <button onClick={increment_func} className="increment-decrement">
+        <button onClick={increment_func(checkDate(data.date) === 1 ? data.allowed - data.count_of_bands_day_1 : checkDate(data.date) === 2 ? data.allowed - data.count_of_bands_day_2 : 1)} className="increment-decrement">
           <AiOutlinePlus />
         </button>
         <div className="count-of-bands">{count}</div>

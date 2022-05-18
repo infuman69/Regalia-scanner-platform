@@ -31,7 +31,7 @@ const Regaliapass = () => {
 
           }
           setdata(pdata.data)
-          data.date ===  "18" ? setallowed(data.allowed - data.count_of_bands_day_1) : data.date === "19" ? setallowed(data.allowed - data.count_of_bands_day_2): setallowed(1);
+          data.date ===  "19" ? setallowed(data.allowed - data.count_of_bands_day_1) : data.date === "20" ? setallowed(data.allowed - data.count_of_bands_day_2): setallowed(1);
           setloading(false)
         })
       }
@@ -50,15 +50,6 @@ const Regaliapass = () => {
   const decrement_func = () => {
     setCount((count) => (count === 1 ? 1 : count - 1));
   };
-
-  const checkDate = (date) => {
-    console.log(data.date);
-    if (date === '18') {
-      return 1
-    } else if (date === '20') {
-      return 2;
-    } else return 0;
-  }
 
   const handleSubmit = (e) => {
     e.preventDefault();

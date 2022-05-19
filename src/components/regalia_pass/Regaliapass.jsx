@@ -16,6 +16,7 @@ const Regaliapass = () => {
   const [count, setCount] = useState(1);
   const [loading, setloading] = useState(false);
   const [allowed,setallowed] = useState(data.allowed);
+  const [Disabled,setdisabled] = useState(false)
 
   let history = useHistory()
 
@@ -53,7 +54,7 @@ const Regaliapass = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    setdisabled(true)
     try{
       patchVerify(params.id,count).then((pdata) => {
 
@@ -136,6 +137,7 @@ const Regaliapass = () => {
           className="submit-btn"
           type="submit"
           onClick={(e) => {handleSubmit(e)}}
+          disabled={Disabled}
         >
           Submit
         </button>
